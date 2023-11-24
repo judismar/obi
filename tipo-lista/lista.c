@@ -1,30 +1,36 @@
 #include "lista.h"
 #include <stdio.h>
 #include <stdlib.h>
-#define TAMANHO_INICIAL_LISTA 8
 
 struct lista
 {
     int* a;
     int n;
+    int tam_array;
 };
 
 Lista* criaLista()
 {
     Lista* l = (Lista*) malloc(sizeof(Lista));
     l->n = 0; //(*l).n = 0;
-    l->a = (int*) malloc(TAMANHO_INICIAL_LISTA*sizeof(int));
+    l->tam_array = 2;
+    l->a = (int*) malloc(2*sizeof(int));
     return l;
 }
 
 void insere(Lista *l, int num)
 {
-    if(l->n == TAMANHO_INICIAL_LISTA)
+    //l->n é equivalente a (*l).n
+    if(l->n == l->tam_array) //array cheio!!
     {
-        printf("Overflow.\n");
-        return;
+        //alocar array com dobro do tamanho
+        l->tam_array *= 2;
+        int* v = (int*) malloc(l->tam_array*sizeof(int));
+        for(int k = 0; k < l->n; k++)
+            v[k] = l->a[k];
+        free(l->a);
+        l->a = v;
     }
-        //realocar array, pois deu overflow.
     l->a[l->n] = num;
     l->n ++;
 }
