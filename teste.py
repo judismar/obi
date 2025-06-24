@@ -31,7 +31,7 @@ def expLista(n, numExp):
     tempoMedio = (fim - inicio)/numExp
     print("Tempo médio de execução \
 de uma busca em uma lista \
-linear: " + str(tempoMedio) + "segundos.")
+linear: " + str(tempoMedio) + " segundos.")
 
 def expTabelaDispersao(n, numExp):
     U = range(1, 10**7+1)
@@ -45,7 +45,7 @@ def expTabelaDispersao(n, numExp):
     tempoMedio = (fim - inicio)/numExp
     print("Tempo médio de execução \
 de uma busca em uma tabela \
-de dispersão: " + str(tempoMedio) + "segundos.")
+de dispersão: " + str(tempoMedio) + " segundos.")
 
 expLista(n, N_MEDIA)
 expTabelaDispersao(n, N_MEDIA)
